@@ -1,10 +1,11 @@
 // ===============================
-// CONFIG (CHANGE THIS URL)
+// CONFIG (IMPORTANT 🔥)
 // ===============================
-const API_URL = "https://portfolio-backend-80m0.onrender.com";
+const API_URL = "https://portfolio-backend-80m0.onrender.com"; // 👈 change if your backend URL is different
+
 
 // ===============================
-// Theme Toggle
+// Dark / Light Mode Toggle
 // ===============================
 const themeToggle = document.getElementById("themeToggle");
 
@@ -15,8 +16,22 @@ if (themeToggle) {
     };
 }
 
+
 // ===============================
-// Smooth Scroll
+// Mobile Navbar Toggle
+// ===============================
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+if (menuToggle && navLinks) {
+    menuToggle.onclick = () => {
+        navLinks.classList.toggle("show");
+    };
+}
+
+
+// ===============================
+// Smooth Scroll Buttons
 // ===============================
 const skillsBtn = document.getElementById("skillsBtn");
 const contactBtn = document.getElementById("contactBtn");
@@ -37,8 +52,27 @@ if (contactBtn) {
     };
 }
 
+
 // ===============================
-// CONTACT FORM (FIXED)
+// Scroll Reveal Animation
+// ===============================
+const reveals = document.querySelectorAll(".reveal");
+
+function revealOnScroll() {
+    reveals.forEach((el) => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            el.classList.add("active");
+        }
+    });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+revealOnScroll();
+
+
+// ===============================
+// CONTACT FORM (FINAL FIX 🔥)
 // ===============================
 const contactForm = document.getElementById("contactForm");
 
@@ -59,12 +93,19 @@ if (contactForm) {
                 body: JSON.stringify({ name, email, message })
             });
 
+            // Check if response is ok
+            if (!response.ok) {
+                throw new Error("Server error");
+            }
+
             const data = await response.json();
             document.getElementById("status").innerText = data.message;
 
             contactForm.reset();
+
         } catch (error) {
-            document.getElementById("status").innerText = "Error sending message!";
+            console.error("Error:", error);
+            document.getElementById("status").innerText = "❌ Error sending message!";
         }
     });
 }
