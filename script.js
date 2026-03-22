@@ -1,5 +1,10 @@
 // ===============================
-// Dark / Light Mode Toggle
+// CONFIG (CHANGE THIS URL)
+// ===============================
+const API_URL = "https://portfolio-backend-80m0.onrender.com";
+
+// ===============================
+// Theme Toggle
 // ===============================
 const themeToggle = document.getElementById("themeToggle");
 
@@ -11,19 +16,7 @@ if (themeToggle) {
 }
 
 // ===============================
-// Mobile Navbar Toggle
-// ===============================
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
-
-if (menuToggle && navLinks) {
-    menuToggle.onclick = () => {
-        navLinks.classList.toggle("show");
-    };
-}
-
-// ===============================
-// Smooth Scroll Buttons
+// Smooth Scroll
 // ===============================
 const skillsBtn = document.getElementById("skillsBtn");
 const contactBtn = document.getElementById("contactBtn");
@@ -45,24 +38,7 @@ if (contactBtn) {
 }
 
 // ===============================
-// Scroll Reveal Animation
-// ===============================
-const reveals = document.querySelectorAll(".reveal");
-
-function revealOnScroll() {
-    reveals.forEach((el) => {
-        const top = el.getBoundingClientRect().top;
-        if (top < window.innerHeight - 100) {
-            el.classList.add("active");
-        }
-    });
-}
-
-window.addEventListener("scroll", revealOnScroll);
-revealOnScroll();
-
-// ===============================
-// Contact Form Backend Integration (LIVE)
+// CONTACT FORM (FIXED)
 // ===============================
 const contactForm = document.getElementById("contactForm");
 
@@ -70,17 +46,12 @@ if (contactForm) {
     contactForm.addEventListener("submit", async function (e) {
         e.preventDefault();
 
-        const status = document.getElementById("status");
-
         const name = this.querySelector("input[type='text']").value;
         const email = this.querySelector("input[type='email']").value;
         const message = this.querySelector("textarea").value;
 
-        // Show loading
-        status.innerText = "Sending message... ⏳";
-
         try {
-            const response = await fetch("https://portfolio-backend-80m0.onrender.com/contact", {
+            const response = await fetch(`${API_URL}/contact`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -89,14 +60,11 @@ if (contactForm) {
             });
 
             const data = await response.json();
+            document.getElementById("status").innerText = data.message;
 
-            // Success message
-            status.innerText = "✅ Message sent successfully!";
             contactForm.reset();
-
         } catch (error) {
-            console.error(error);
-            status.innerText = "❌ Error sending message!";
+            document.getElementById("status").innerText = "Error sending message!";
         }
     });
 }
