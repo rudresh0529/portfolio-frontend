@@ -62,7 +62,7 @@ window.addEventListener("scroll", revealOnScroll);
 revealOnScroll();
 
 // ===============================
-// Contact Form Backend Integration
+// Contact Form Backend Integration (LIVE)
 // ===============================
 const contactForm = document.getElementById("contactForm");
 
@@ -70,12 +70,17 @@ if (contactForm) {
     contactForm.addEventListener("submit", async function (e) {
         e.preventDefault();
 
+        const status = document.getElementById("status");
+
         const name = this.querySelector("input[type='text']").value;
         const email = this.querySelector("input[type='email']").value;
         const message = this.querySelector("textarea").value;
 
+        // Show loading
+        status.innerText = "Sending message... ⏳";
+
         try {
-            const response = await fetch("http://localhost:5000/contact", {
+            const response = await fetch("https://portfolio-backend-80m0.onrender.com/contact", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -84,10 +89,14 @@ if (contactForm) {
             });
 
             const data = await response.json();
-            document.getElementById("status").innerText = data.message;
+
+            // Success message
+            status.innerText = "✅ Message sent successfully!";
             contactForm.reset();
+
         } catch (error) {
-            document.getElementById("status").innerText = "Error sending message!";
+            console.error(error);
+            status.innerText = "❌ Error sending message!";
         }
     });
 }
