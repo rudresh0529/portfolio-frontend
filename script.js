@@ -1,7 +1,7 @@
 // ===============================
 // CONFIG (IMPORTANT 🔥)
 // ===============================
-const API_URL = "https://portfolio-backend-80m0.onrender.com";
+const API_URL = "https://portfolio-backend-8om0.onrender.com";
 
 // ===============================
 // Contact Form Backend Integration
