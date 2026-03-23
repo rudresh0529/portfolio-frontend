@@ -83,7 +83,7 @@ body {
 
 /* ANIMATION */
 .hero-animate {
-  animation: fadeUp 1s ease forwards;
+  animation: fadeUp 2s ease forwards;
 }
 
 @keyframes fadeUp {
@@ -104,8 +104,8 @@ body {
 
 /* BUTTONS */
 .hero-buttons button {
-  background: #f8fafc;
-  color: #0f172a;
+  background: #f8f9fc;
+  color: #213258;
   border: none;
   padding: 10px 16px;
   cursor: pointer;
@@ -115,7 +115,7 @@ body {
 
 .hero-buttons button:hover {
   transform: scale(1.05);
-  background: #e2e8f0;
+  background: #cedcee;
 }
 
 /* CODE BOX */
@@ -132,7 +132,8 @@ body {
 .section {
   padding: 60px 40px;
 }
-
+/* margin changes*/
+section{scroll-margin-top: 100px;;}
 /* CARDS */
 .service-card, .hobby-card {
   background: var(--card);
