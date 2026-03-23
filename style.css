@@ -185,3 +185,93 @@ section{scroll-margin-top: 100px;;}
   opacity: 1;
   transform: translateY(0);
 }
+/* ================= UNIVERSAL RESPONSIVE ================= */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+}
+
+/* ================= MOBILE ================= */
+@media (max-width: 768px) {
+
+  /* NAVBAR */
+  .navbar {
+    padding: 10px 20px;
+  }
+
+  .logo {
+    font-size: 18px;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: var(--card);
+    width: 200px;
+    padding: 15px;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  /* HERO */
+  .hero {
+    flex-direction: column;
+    padding: 100px 20px 40px;
+    text-align: left;
+  }
+
+  .hero-left,
+  .hero-right {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .hero-left h1 {
+    font-size: 32px;
+  }
+
+  /* EMAIL */
+  .email-link {
+    font-size: 14px;
+    word-break: break-word;
+  }
+
+  /* BUTTONS */
+  .hero-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .hero-buttons button {
+    width: 150px;
+  }
+
+  /* CODE BOX */
+  .code-box {
+    margin-top: 20px;
+    font-size: 14px;
+  }
+
+  /* SECTIONS */
+  .section {
+    padding: 40px 20px;
+  }
+}
+
+/* ================= TABLET ================= */
+@media (max-width: 1024px) {
+  .hero-left,
+  .hero-right {
+    padding: 40px;
+  }
+}
