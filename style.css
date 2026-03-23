@@ -8,16 +8,16 @@
 /* THEMES */
 body.dark {
   --bg: #0b0f19;
-  --text: #e2e8f0;
+  --text: #b0c3dd;
   --card: #111827;
-  --accent: #3b82f6;
+  --accent: #3e3bf6;
 }
 
 body.light {
   --bg: #f8fafc;
   --text: #0f172a;
   --card: #ffffff;
-  --accent: #2563eb;
+  --accent: #25ebd1;
 }
 
 body {
@@ -104,7 +104,7 @@ body {
 
 /* BUTTONS */
 .hero-buttons button {
-  background: #f8f9fc;
+  background: #405081;
   color: #213258;
   border: none;
   padding: 10px 16px;
@@ -115,7 +115,7 @@ body {
 
 .hero-buttons button:hover {
   transform: scale(1.05);
-  background: #cedcee;
+  background: #b5cdec;
 }
 
 /* CODE BOX */
